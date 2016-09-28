@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  
+  root to: 'articles#index'
   get 'scaffold/comments'
 
   resources :articles 

@@ -1,19 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <h1>Adrien's Blog</h1>
-  <h2>My first application of Ruby for the bootcamp  </h2>
-
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Adrien's Blog</h1>
+    <p class="lead">My first application of Ruby for the bootcamp</p>
+  </div>
+</div>
+<br>
   <div class="row">
     <div class="colum-sm-8">
-	
-<%= form_tag(articles_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
-<%= submit_tag "Search" %>
-<% end %>
-
-
+       <%= link_to 'New Article', new_article_path,class: 'btn btn-primary' %>
 	</div>
+  <br>
 </div>
     <div class="colum-sm-8">
       <ul>
@@ -37,10 +36,14 @@
           </div>
         <% @commentshows.each do |show| %>
         <%if show.article_id == article.id %>
-           <p class="card-text">Comment <br> <%= show.body %></p>
+           <p class="card-text">
+            <div class="well">
+            Comment 
+          </div>
+          <br> <%= show.body %></p>
           <div class="card-footer">
             <%= link_to 'Edit', edit_comment_path(show), class: 'btn btn-warning' %>
-            <%= link_to 'Delete', comment_path(show), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Delete', comment_path(show), method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-warning' %>
           </div>
       <% end %> 
 
@@ -56,7 +59,9 @@
     </div>
   </div>
 
-
-        <%= link_to 'New Article', new_article_path %>
+<footer class="container-fluid text-center" >
+  <p>Copyright@2016 by Adrien Gonzalez</p>
+</footer>
+       
         
-  </div>
+ 
