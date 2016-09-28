@@ -27,6 +27,7 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 # gem 'bcrypt', '~> 3.1.7'
 gem "redcarpet"
 gem 'acts-as-taggable-on', '~> 4.0'
+gem 'rails_12factor'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
