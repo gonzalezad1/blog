@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20160927164128) do
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "view"
   end
 
   create_table "comments", force: :cascade do |t|
