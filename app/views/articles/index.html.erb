@@ -1,54 +1,45 @@
 <p id="notice"><%= notice %></p>
-
-<div class="container">
-  <div class="jumbotron jumbotron-fluid">
+<body background="../assets/bg.png" id="bg" >
   <div class="container">
-    <h1 class="display-3">Adrien's Blog</h1>
-    <p class="lead">My first application of Ruby for the bootcamp</p>
-  </div>
-</div>
-<br>
-  <div class="row">
-    <div class="colum-sm-8">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">Adrien's Blog</h1>
+        <h2 class="lead">My first application of Ruby for the bootcamp</h2>
+      </div>
+    </div>
+      <br>
+    <div class="row">
+      <div class="col-md-12">
        <%= link_to 'New Article', new_article_path,class: 'btn btn-primary' %>
-	</div>
-  <br>
-</div>
-    <div id="presentation" class="colum-sm-8" >
-      <ul>
-        <div class="row">
+	    </div>
+        <br>
+        <br>
+    </div>
+    <div class="row">
+      <div id="presentation" class="col-md-12" >
         <div class="card">
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <img class="card-img-top" src="../assets/picture_profile.jpg" alt="Card image cap">
           <div class="card-block">
             <h4 class="card-title">Adrien Gonzalez</h4>
             <p class="card-text">
-            <div class="col-sm-12">
+              <p class="presentation-moi">
+              I am a Web Developper with a year experience and had created several applications that you can check online.
+              I am currently looking for new challenges to enhance my skills in coding and web development.
+              You can find my resume in this link:
+              <a href="https://adriengonzalez.herokuapp.com">https://adriengonzalez.herokuapp.com </a>
 
-            <p class="presentation-moi">
-            Web Developper with 1 year of experience, i already create some applications...
-            I am currently looking for new challenges to develop my skills in coding and web development.
-            You can find my resume into this link:
-            <a href="https://adriengonzalez.herokuapp.com">https://adriengonzalez.herokuapp.com </a>
-
-            For more information don't hesitate to contact me directly at 
-            <a href="gonzalez_ad@hotmail.fr">gonzalez_ad@hotmail.fr</a> 
+              For more info, please contact me directly at 
+              <a href="gonzalez_ad@hotmail.fr">gonzalez_ad@hotmail.fr</a> 
+              </p>
             </p>
-
-          </div>
-          <div class="card-footer">
-            <p>
-             
-            </p>
-          </div>
-        
+          </div>        
         </div>
-        </div>
+      </div>
     </div>
 
 
-
-    <div class="colum-sm-8" id="Posts">
-      <ul>
+    <div class="row">
+      <div class="col-md-12" id="Posts">
         <% @articles.each do |article| %>
         <div class="card">
           <div class="card-block">
@@ -67,8 +58,8 @@
               <%= article.view %>
             </p>
           </div>
-        <% @commentshows.each do |show| %>
-        <%if show.article_id == article.id %>
+          <% @commentshows.each do |show| %>
+          <%if show.article_id == article.id %>
            <p class="card-text">
             <div class="well">
             Comment 
@@ -78,16 +69,13 @@
             <%= link_to 'Edit', edit_comment_path(show), class: 'btn btn-warning' %>
             <%= link_to 'Delete', comment_path(show), method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-warning' %>
           </div>
-      <% end %> 
-
-      <% end %>
-
+            <% end %> 
+            <% end %>
         </div>
-              <br>
-      <br>
-      <br>
-      <% end %>
-      </ul>
+     <br>
+     <br>
+     <br>
+   <% end %>
       <br>
     </div>
   </div>
