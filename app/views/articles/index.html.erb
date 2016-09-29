@@ -1,5 +1,16 @@
 <p id="notice"><%= notice %></p>
 <body background="../assets/bg.png" id="bg" >
+  
+  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+     <form class="form-inline pull-xs-right">
+       <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
+        <%= submit_tag "Search" %>
+        <% end %>
+
+      </form>
+  </div>
+  <br>
   <div class="container">
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
@@ -36,7 +47,7 @@
         </div>
       </div>
     </div>
-
+    <br>
 
     <div class="row">
       <div class="col-md-12" id="Posts">
@@ -72,8 +83,6 @@
             <% end %> 
             <% end %>
         </div>
-     <br>
-     <br>
      <br>
    <% end %>
       <br>
