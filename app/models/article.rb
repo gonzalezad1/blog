@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
 
  acts_as_taggable # Alias for acts_as_taggable_on :tags
     acts_as_taggable_on :tags
-has_many :comments
+has_many :comments, dependent: :destroy
     has_many :tags, through: :tag_list
 
 
