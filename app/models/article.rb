@@ -5,6 +5,9 @@ class Article < ActiveRecord::Base
 has_many :comments, dependent: :destroy
     has_many :tags, through: :tag_list
 
+validates_presence_of :title, :body , message: "Please enter a title and a body"
+validates :title, presence: true, length: {maximum: 75}
+
 
 def self.articleview (article)
 article = article+1
