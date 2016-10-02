@@ -27,10 +27,11 @@ class ArticlesController < ApplicationController
       else
       @article = Article.find(params[:id])
       end 
-    @commentshows= Comment.all
+    @commentshows= Comment.all.order('created_at DESC')
     @comment = Comment.new
     @article.view +=1
     @article.save
+
 
   end
 

@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     @comments = Comment.all
+    @comments.sort! { |a,b| a.created_at <=> b.created_at }
   end
 
   # GET /comments/1
@@ -15,6 +16,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+
   end
 
   # GET /comments/1/edit
@@ -25,15 +27,16 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-
+    @article= Article.find(@comment.article_id)
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to articles_path, notice: 'Comment was successfully created.' }
+
+        format.html { redirect_to @article, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new }
+        format.html { redirect_to @article, notice: 'Comment was not created.Comment cannot be blank' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
-      redirect_to articles_path
+      
       end
     end
   end
@@ -41,9 +44,11 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+
+     @article= Article.find(@comment.article_id)
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to articles_path, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -55,9 +60,10 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    @article= Article.find(@comment.article_id)
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to articles_path, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to @article, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

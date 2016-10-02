@@ -1,8 +1,14 @@
+<div class="box1">
 <div class="color_text">
 	
 <body background="../assets/bg.png" id="bg" >
 <div align="center">
 <div class="mydiv">
+	
+<br>
+<br>
+<br>
+<br>
 
 <h1>Editing Comment</h1>
 
@@ -19,9 +25,10 @@
 
 
 <%= link_to 'Show', @comment %> |
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Back', article_path(@comment.article_id) %>
 
 
+</div>
 </div>
 </div>
 </div>
